@@ -69,20 +69,17 @@ def question():
     hint2 = 'After dividing N/D, quotient =' + str(quo) + ' remainder = ' + str(rem)
     hint3 = 'Mixed Fraction Answer :' + str(quo) + " (" + str(rem) + "/" + str(den) + ")"
     hints = {'h1': hint1, 'h2': hint2, 'h3': hint3}
-<<<<<<< Updated upstream
-=======
+
 
 #     return render_template('display.html', answer=answer, hints=hints)
 
->>>>>>> Stashed changes
     total = qtscnt * 25
-    tcp = (scorecnt/total)*100
+    try:
+        tcp = (scorecnt/total)*100
+    except:
+        tcp = 0
     scoredict = {'score': scorecnt, 'total': total, 'totalqts': qtscnt, 'tcp': tcp}
     return render_template('display.html', answer=answer, hints=hints, scoredict=scoredict)
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 
 @app.route('/score/<counter>/<feedback>', methods=['POST'])
